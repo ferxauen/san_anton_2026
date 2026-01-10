@@ -6,81 +6,81 @@
     <title>SANTIAGO APOSTOL - 2026</title>
     <style>
         :root { --azul: #3498db; --naranja: #f39c12; --purpura: #9b59b6; --gris: #2c3e50; --success: #27ae60; --danger: #e74c3c; --dorado: #f1c40f; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #e9ecef; margin: 0; padding: 10px; display: flex; flex-direction: column; align-items: center; }
+        body { font-family: 'Segoe UI', sans-serif; background: #e9ecef; margin: 0; padding: 10px; display: flex; flex-direction: column; align-items: center; }
         
-        /* Título solicitado */
         .header-title { width: 100%; max-width: 450px; background: var(--gris); color: white; text-align: center; padding: 15px 10px; border-radius: 15px 15px 0 0; box-sizing: border-box; }
-        .header-title h1 { margin: 0; font-size: 18px; letter-spacing: 1px; color: var(--dorado); }
+        .header-title h1 { margin: 0; font-size: 18px; color: var(--dorado); }
         .header-title h2 { margin: 5px 0 0 0; font-size: 22px; }
 
         .container { width: 100%; max-width: 450px; background: white; padding: 15px; border-radius: 0 0 20px 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); box-sizing: border-box; }
         
-        /* Pantalla de Totales */
-        .display-total { background: #f8f9fa; padding: 15px; border-radius: 12px; text-align: center; margin-bottom: 15px; border: 2px solid #eee; }
-        .display-total .euros { font-size: 42px; font-weight: bold; display: block; color: var(--gris); }
-        .ticket-summary { font-size: 16px; font-weight: bold; color: #666; }
-
-        /* Filas de Productos */
+        .display-total { background: #f8f9fa; padding: 12px; border-radius: 12px; text-align: center; margin-bottom: 15px; border: 2px solid #eee; }
+        .display-total .euros { font-size: 40px; font-weight: bold; display: block; color: var(--gris); }
+        
         .grid-categorias { display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px; }
         .categoria-row { display: flex; align-items: center; background: #fff; padding: 10px; border-radius: 12px; border: 2px solid #eee; position: relative; }
-        .badge-count { position: absolute; top: -8px; left: -8px; background: var(--gris); color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        .badge-count { position: absolute; top: -8px; left: -8px; background: var(--gris); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        
         .info-prod { flex-grow: 1; margin-left: 20px; }
-        .info-prod div { font-weight: bold; font-size: 16px; }
+        .info-prod div { font-weight: bold; font-size: 15px; }
         
-        .controls { display: flex; align-items: center; gap: 8px; }
-        .btn-plus-minus { width: 45px; height: 45px; border: none; border-radius: 10px; color: white; font-size: 22px; font-weight: bold; cursor: pointer; }
-        .btn-menos { background: var(--danger); }
-        .btn-mas { background: var(--success); }
+        /* Controles: Menos, Más y CERO */
+        .controls { display: flex; align-items: center; gap: 5px; }
+        .btn-ctrl { border: none; border-radius: 8px; color: white; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .btn-menos { width: 40px; height: 45px; background: var(--danger); font-size: 20px; }
+        .btn-mas { width: 55px; height: 45px; background: var(--success); font-size: 22px; }
+        .btn-zero { width: 40px; height: 45px; background: #95a5a6; font-size: 16px; } /* Botón Cero */
+        .btn-ctrl:active { transform: scale(0.9); }
 
-        /* Billetes rápidos */
         .fast-cash { display: flex; gap: 5px; margin-bottom: 10px; }
-        .btn-cash { flex: 1; padding: 10px; border: none; border-radius: 8px; background: #e2e6ea; font-weight: bold; color: var(--gris); cursor: pointer; }
+        .btn-cash { flex: 1; padding: 10px; border: none; border-radius: 8px; background: #e2e6ea; font-weight: bold; font-size: 14px; }
 
-        /* Pago y Cambio */
-        input { width: 100%; padding: 15px; border: 2px solid #ddd; border-radius: 12px; font-size: 22px; box-sizing: border-box; text-align: center; margin-bottom: 10px; background: #fffde7; }
-        .cambio-box { padding: 15px; border-radius: 12px; text-align: center; font-size: 26px; font-weight: bold; border: 1px solid rgba(0,0,0,0.1); }
-        
-        .reset-btn { width: 100%; background: #adb5bd; color: white; border: none; padding: 15px; border-radius: 12px; margin-top: 15px; font-weight: bold; }
+        input { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 10px; font-size: 20px; box-sizing: border-box; text-align: center; margin-bottom: 10px; background: #fffde7; }
+        .cambio-box { padding: 15px; border-radius: 12px; text-align: center; font-size: 24px; font-weight: bold; border: 1px solid rgba(0,0,0,0.1); }
+        .reset-btn { width: 100%; background: #34495e; color: white; border: none; padding: 12px; border-radius: 10px; margin-top: 15px; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <div class="header-title">
-    <h1>SANTIAGO APOSTOL JAÉN</h1>
-    <h1>SAN ANTÓN 2026</h1>
+    <h1>SANTIAGO APOSTOL</h1>
+    <h2>SAN ANTÓN 2026</h2>
 </div>
 
 <div class="container">
     <div class="display-total">
-        <div class="ticket-summary">TOTAL TICKETS: <span id="total-tickets-label">0</span></div>
+        <div style="font-size: 14px; color: #666;">TICKETS: <span id="total-tickets-label">0</span></div>
         <div class="euros" id="totalEuros">0,00 €</div>
     </div>
 
     <div class="grid-categorias">
-        <div class="categoria-row" style="border-left: 10px solid var(--azul);">
+        <div class="categoria-row" style="border-left: 8px solid var(--azul);">
             <div id="count-bebida" class="badge-count">0</div>
-            <div class="info-prod"><div>🥤 BEBIDA</div><span>1 Ticket (1,50€)</span></div>
+            <div class="info-prod"><div>🥤 BEBIDA</div></div>
             <div class="controls">
-                <button class="btn-plus-minus btn-menos" onclick="update('bebida', -1)">-</button>
-                <button class="btn-plus-minus btn-mas" onclick="update('bebida', 1)">+</button>
+                <button class="btn-ctrl btn-menos" onclick="update('bebida', -1)">-</button>
+                <button class="btn-ctrl btn-mas" onclick="update('bebida', 1)">+</button>
+                <button class="btn-ctrl btn-zero" onclick="setZero('bebida')">C</button>
             </div>
         </div>
 
-        <div class="categoria-row" style="border-left: 10px solid var(--naranja);">
+        <div class="categoria-row" style="border-left: 8px solid var(--naranja);">
             <div id="count-bocata" class="badge-count">0</div>
-            <div class="info-prod"><div>🥪 BOCADILLO</div><span>2 Tickets (3,00€)</span></div>
+            <div class="info-prod"><div>🥪 BOCATA</div></div>
             <div class="controls">
-                <button class="btn-plus-minus btn-menos" onclick="update('bocata', -1)">-</button>
-                <button class="btn-plus-minus btn-mas" onclick="update('bocata', 1)">+</button>
+                <button class="btn-ctrl btn-menos" onclick="update('bocata', -1)">-</button>
+                <button class="btn-ctrl btn-mas" onclick="update('bocata', 1)">+</button>
+                <button class="btn-ctrl btn-zero" onclick="setZero('bocata')">C</button>
             </div>
         </div>
 
-        <div class="categoria-row" style="border-left: 10px solid var(--purpura);">
+        <div class="categoria-row" style="border-left: 8px solid var(--purpura);">
             <div id="count-racion" class="badge-count">0</div>
-            <div class="info-prod"><div>🍳 RACIÓN</div><span>3 Tickets (4,50€)</span></div>
+            <div class="info-prod"><div>🍳 RACIÓN</div></div>
             <div class="controls">
-                <button class="btn-plus-minus btn-menos" onclick="update('racion', -1)">-</button>
-                <button class="btn-plus-minus btn-mas" onclick="update('racion', 1)">+</button>
+                <button class="btn-ctrl btn-menos" onclick="update('racion', -1)">-</button>
+                <button class="btn-ctrl btn-mas" onclick="update('racion', 1)">+</button>
+                <button class="btn-ctrl btn-zero" onclick="setZero('racion')">C</button>
             </div>
         </div>
     </div>
@@ -92,13 +92,11 @@
         <button class="btn-cash" onclick="setEfectivo(50)">50€</button>
     </div>
 
-    <input type="number" id="pago" placeholder="Efectivo entregado €" step="0.01" inputmode="decimal" oninput="calcular()">
+    <input type="number" id="pago" placeholder="Dinero entregado €" inputmode="decimal" oninput="calcular()">
 
-    <div class="cambio-box" id="cambioBox" style="background: #eee;">
-        Cambio: 0,00 €
-    </div>
+    <div class="cambio-box" id="cambioBox" style="background: #eee;">Cambio: 0,00 €</div>
 
-    <button class="reset-btn" onclick="limpiar()">BORRAR / NUEVO CLIENTE</button>
+    <button class="reset-btn" onclick="limpiar()">BORRAR TODA LA VENTA</button>
 </div>
 
 <script>
@@ -111,6 +109,11 @@
             data[prod] += val;
             render();
         }
+    }
+
+    function setZero(prod) {
+        data[prod] = 0;
+        render();
     }
 
     function setEfectivo(cantidad) {
@@ -128,11 +131,9 @@
                            (data.racion * TICKETS_POR_PROD.racion);
 
         const totalDinero = totalTickets * PRECIO_TICKET;
-        
         document.getElementById('total-tickets-label').innerText = totalTickets;
         document.getElementById('totalEuros').innerText = totalDinero.toLocaleString('es-ES', { minimumFractionDigits: 2 }) + " €";
         document.getElementById('totalEuros').dataset.valor = totalDinero;
-        
         calcular();
     }
 
@@ -149,11 +150,9 @@
         } else if (cambio < 0) {
             box.innerText = "Faltan: " + Math.abs(cambio).toFixed(2) + " €";
             box.style.background = "#f8d7da";
-            box.style.color = "#721c24";
         } else {
             box.innerText = "Cambio: " + cambio.toLocaleString('es-ES', { minimumFractionDigits: 2 }) + " €";
             box.style.background = "#d4edda";
-            box.style.color = "#155724";
         }
     }
 
@@ -165,7 +164,4 @@
 </script>
 
 </body>
-
 </html>
-
-
