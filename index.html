@@ -6,38 +6,39 @@
     <title>SANTIAGO APOSTOL - 2026</title>
     <style>
         :root { --azul: #3498db; --naranja: #f39c12; --purpura: #9b59b6; --gris: #2c3e50; --success: #27ae60; --danger: #e74c3c; --dorado: #f1c40f; }
-        body { font-family: 'Segoe UI', sans-serif; background: #e9ecef; margin: 0; padding: 10px; display: flex; flex-direction: column; align-items: center; }
+        body { font-family: 'Segoe UI', sans-serif; background: #e9ecef; margin: 0; padding: 5px; display: flex; flex-direction: column; align-items: center; }
         
-        .header-title { width: 100%; max-width: 450px; background: var(--gris); color: white; text-align: center; padding: 15px 10px; border-radius: 15px 15px 0 0; box-sizing: border-box; }
-        .header-title h1 { margin: 0; font-size: 18px; color: var(--dorado); }
-        .header-title h2 { margin: 5px 0 0 0; font-size: 22px; }
+        .header-title { width: 100%; max-width: 400px; background: var(--gris); color: white; text-align: center; padding: 10px; border-radius: 12px 12px 0 0; box-sizing: border-box; }
+        .header-title h1 { margin: 0; font-size: 16px; color: var(--dorado); }
+        .header-title h2 { margin: 2px 0 0 0; font-size: 18px; }
 
-        .container { width: 100%; max-width: 450px; background: white; padding: 15px; border-radius: 0 0 20px 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); box-sizing: border-box; }
+        .container { width: 100%; max-width: 400px; background: white; padding: 12px; border-radius: 0 0 15px 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); box-sizing: border-box; }
         
-        .display-total { background: #f8f9fa; padding: 12px; border-radius: 12px; text-align: center; margin-bottom: 15px; border: 2px solid #eee; }
-        .display-total .euros { font-size: 40px; font-weight: bold; display: block; color: var(--gris); }
+        .display-total { background: #f8f9fa; padding: 8px; border-radius: 10px; text-align: center; margin-bottom: 10px; border: 1px solid #ddd; }
+        .display-total .euros { font-size: 32px; font-weight: bold; display: block; color: var(--gris); }
         
-        .grid-categorias { display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px; }
-        .categoria-row { display: flex; align-items: center; background: #fff; padding: 10px; border-radius: 12px; border: 2px solid #eee; position: relative; }
-        .badge-count { position: absolute; top: -8px; left: -8px; background: var(--gris); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
-        
-        .info-prod { flex-grow: 1; margin-left: 20px; }
-        .info-prod div { font-weight: bold; font-size: 15px; }
-        
-        /* Controles: Menos, Más y CERO */
-        .controls { display: flex; align-items: center; gap: 5px; }
-        .btn-ctrl { border: none; border-radius: 8px; color: white; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-        .btn-menos { width: 40px; height: 45px; background: var(--danger); font-size: 20px; }
-        .btn-mas { width: 55px; height: 45px; background: var(--success); font-size: 22px; }
-        .btn-zero { width: 40px; height: 45px; background: #95a5a6; font-size: 16px; } /* Botón Cero */
-        .btn-ctrl:active { transform: scale(0.9); }
+        /* Contadores más grandes */
+        .badge-count { position: absolute; top: -5px; left: -5px; background: var(--gris); color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 18px; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2); z-index: 10; }
 
-        .fast-cash { display: flex; gap: 5px; margin-bottom: 10px; }
-        .btn-cash { flex: 1; padding: 10px; border: none; border-radius: 8px; background: #e2e6ea; font-weight: bold; font-size: 14px; }
+        .grid-categorias { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+        .categoria-row { display: flex; align-items: center; background: #fff; padding: 8px; border-radius: 10px; border: 1px solid #eee; position: relative; }
+        .info-prod { flex-grow: 1; margin-left: 35px; font-weight: bold; font-size: 14px; }
+        
+        /* Botones +, - y C IGUALES */
+        .controls { display: flex; gap: 4px; }
+        .btn-ctrl { width: 42px; height: 42px; border: none; border-radius: 6px; color: white; font-weight: bold; font-size: 18px; cursor: pointer; transition: active 0.1s; }
+        .btn-menos { background: var(--danger); }
+        .btn-mas { background: var(--success); }
+        .btn-zero { background: #7f8c8d; font-size: 14px; }
+        .btn-ctrl:active { background: #000; }
 
-        input { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 10px; font-size: 20px; box-sizing: border-box; text-align: center; margin-bottom: 10px; background: #fffde7; }
-        .cambio-box { padding: 15px; border-radius: 12px; text-align: center; font-size: 24px; font-weight: bold; border: 1px solid rgba(0,0,0,0.1); }
-        .reset-btn { width: 100%; background: #34495e; color: white; border: none; padding: 12px; border-radius: 10px; margin-top: 15px; font-weight: bold; }
+        .fast-cash { display: flex; gap: 4px; margin-bottom: 8px; }
+        .btn-cash { flex: 1; padding: 8px; border: none; border-radius: 6px; background: #dee2e6; font-weight: bold; font-size: 13px; }
+
+        /* Apartados más pequeños e iguales */
+        .small-input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; box-sizing: border-box; text-align: center; margin-bottom: 8px; }
+        .small-box { padding: 10px; border-radius: 8px; text-align: center; font-size: 18px; font-weight: bold; border: 1px solid #ddd; margin-bottom: 8px; }
+        .small-reset { width: 100%; background: #5a6268; color: white; border: none; padding: 10px; border-radius: 8px; font-weight: bold; font-size: 14px; }
     </style>
 </head>
 <body>
@@ -49,14 +50,14 @@
 
 <div class="container">
     <div class="display-total">
-        <div style="font-size: 14px; color: #666;">TICKETS: <span id="total-tickets-label">0</span></div>
+        <div style="font-size: 12px; color: #666;">TICKETS: <span id="total-tickets-label">0</span></div>
         <div class="euros" id="totalEuros">0,00 €</div>
     </div>
 
     <div class="grid-categorias">
-        <div class="categoria-row" style="border-left: 8px solid var(--azul);">
+        <div class="categoria-row" style="border-left: 6px solid var(--azul);">
             <div id="count-bebida" class="badge-count">0</div>
-            <div class="info-prod"><div>🥤 BEBIDA</div></div>
+            <div class="info-prod">BEBIDA</div>
             <div class="controls">
                 <button class="btn-ctrl btn-menos" onclick="update('bebida', -1)">-</button>
                 <button class="btn-ctrl btn-mas" onclick="update('bebida', 1)">+</button>
@@ -64,9 +65,9 @@
             </div>
         </div>
 
-        <div class="categoria-row" style="border-left: 8px solid var(--naranja);">
+        <div class="categoria-row" style="border-left: 6px solid var(--naranja);">
             <div id="count-bocata" class="badge-count">0</div>
-            <div class="info-prod"><div>🥪 BOCATA</div></div>
+            <div class="info-prod">BOCATA</div>
             <div class="controls">
                 <button class="btn-ctrl btn-menos" onclick="update('bocata', -1)">-</button>
                 <button class="btn-ctrl btn-mas" onclick="update('bocata', 1)">+</button>
@@ -74,9 +75,9 @@
             </div>
         </div>
 
-        <div class="categoria-row" style="border-left: 8px solid var(--purpura);">
+        <div class="categoria-row" style="border-left: 6px solid var(--purpura);">
             <div id="count-racion" class="badge-count">0</div>
-            <div class="info-prod"><div>🍳 RACIÓN</div></div>
+            <div class="info-prod">RACIÓN</div>
             <div class="controls">
                 <button class="btn-ctrl btn-menos" onclick="update('racion', -1)">-</button>
                 <button class="btn-ctrl btn-mas" onclick="update('racion', 1)">+</button>
@@ -92,11 +93,11 @@
         <button class="btn-cash" onclick="setEfectivo(50)">50€</button>
     </div>
 
-    <input type="number" id="pago" placeholder="Dinero entregado €" inputmode="decimal" oninput="calcular()">
+    <input type="number" id="pago" class="small-input" placeholder="Dinero entregado €" inputmode="decimal" oninput="calcular()">
 
-    <div class="cambio-box" id="cambioBox" style="background: #eee;">Cambio: 0,00 €</div>
+    <div class="small-box" id="cambioBox" style="background: #f1f1f1;">Cambio: 0,00 €</div>
 
-    <button class="reset-btn" onclick="limpiar()">BORRAR TODA LA VENTA</button>
+    <button class="small-reset" onclick="limpiar()">BORRAR TODA LA VENTA</button>
 </div>
 
 <script>
@@ -145,14 +146,16 @@
 
         if (pagado === 0) {
             box.innerText = "Cambio: 0,00 €";
-            box.style.background = "#eee";
+            box.style.background = "#f1f1f1";
             box.style.color = "#333";
         } else if (cambio < 0) {
             box.innerText = "Faltan: " + Math.abs(cambio).toFixed(2) + " €";
             box.style.background = "#f8d7da";
+            box.style.color = "#721c24";
         } else {
             box.innerText = "Cambio: " + cambio.toLocaleString('es-ES', { minimumFractionDigits: 2 }) + " €";
             box.style.background = "#d4edda";
+            box.style.color = "#155724";
         }
     }
 
